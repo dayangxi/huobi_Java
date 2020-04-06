@@ -8,155 +8,160 @@ import java.math.BigDecimal;
  */
 public class Symbol {
 
-  private String baseCurrency;
-  private String quoteCurrency;
-  private int pricePrecision;
-  private int amountPrecision;
-  private String symbolPartition;
-  private String symbol;
+    private String baseCurrency;
+    private String quoteCurrency;
+    private int pricePrecision;
+    private int amountPrecision;
+    private String symbolPartition;
+    private String symbol;
 
-  private Integer valuePrecision;
-  private BigDecimal minOrderAmt;
-  private BigDecimal maxOrderAmt;
-  private BigDecimal minOrderValue;
-  private Integer leverageRatio;
+    private Integer valuePrecision;
+    private BigDecimal minOrderAmt;
+    private BigDecimal maxOrderAmt;
+    private BigDecimal minOrderValue;
+    private Integer leverageRatio;
 
 
-  /**
-   * Get the base currency in a trading symbol.
-   *
-   * @return The currency.
-   */
-  public String getBaseCurrency() {
-    return baseCurrency;
-  }
+    /**
+     * Get the base currency in a trading symbol.
+     *
+     * @return The currency.
+     */
+    public String getBaseCurrency() {
+        return baseCurrency;
+    }
 
-  /**
-   * Get the quote currency in a trading symbol.
-   *
-   * @return The currency.
-   */
-  public String getQuoteCurrency() {
-    return quoteCurrency;
-  }
+    public void setBaseCurrency(String baseCurrency) {
+        this.baseCurrency = baseCurrency;
+    }
 
-  /**
-   * Get the quote currency precision when quote price (decimal places).
-   *
-   * @return The precision.
-   */
-  public int getPricePrecision() {
-    return pricePrecision;
-  }
+    /**
+     * Get the quote currency in a trading symbol.
+     *
+     * @return The currency.
+     */
+    public String getQuoteCurrency() {
+        return quoteCurrency;
+    }
 
-  /**
-   * Get the base currency precision when quote amount (decimal places).
-   *
-   * @return The precision.
-   */
-  public int getAmountPrecision() {
-    return amountPrecision;
-  }
+    public void setQuoteCurrency(String quoteCurrency) {
+        this.quoteCurrency = quoteCurrency;
+    }
 
-  /**
-   * Get the trading section, possible values: [main，innovation，bifurcation].
-   *
-   * @return The partition.
-   */
-  public String getSymbolPartition() {
-    return symbolPartition;
-  }
+    /**
+     * Get the quote currency precision when quote price (decimal places).
+     *
+     * @return The precision.
+     */
+    public int getPricePrecision() {
+        return pricePrecision;
+    }
 
-  /**
-   * Get the symbol, like "btcusdt".
-   *
-   * @return The symbol.
-   */
-  public String getSymbol() {
-    return symbol;
-  }
+    public void setPricePrecision(int pricePrecision) {
+        this.pricePrecision = pricePrecision;
+    }
 
-  /**
-   * Get the trading amount precision .
-   * @return
-   */
-  public Integer getValuePrecision() {
-    return valuePrecision;
-  }
+    /**
+     * Get the base currency precision when quote amount (decimal places).
+     *
+     * @return The precision.
+     */
+    public int getAmountPrecision() {
+        return amountPrecision;
+    }
 
-  /**
-   * Get the min order size .
-   * @return
-   */
-  public BigDecimal getMinOrderAmt() {
-    return minOrderAmt;
-  }
+    public void setAmountPrecision(int amountPrecision) {
+        this.amountPrecision = amountPrecision;
+    }
 
-  /**
-   * Get the max order size .
-   * @return
-   */
-  public BigDecimal getMaxOrderAmt() {
-    return maxOrderAmt;
-  }
+    /**
+     * Get the trading section, possible values: [main，innovation，bifurcation].
+     *
+     * @return The partition.
+     */
+    public String getSymbolPartition() {
+        return symbolPartition;
+    }
 
-  /**
-   * Get the min order amount .
-   * @return
-   */
-  public BigDecimal getMinOrderValue() {
-    return minOrderValue;
-  }
+    public void setSymbolPartition(String symbolPartition) {
+        this.symbolPartition = symbolPartition;
+    }
 
-  /**
-   * Get the maximum leverage
-   * @return
-   */
-  public Integer getLeverageRatio() {
-    return leverageRatio;
-  }
+    /**
+     * Get the symbol, like "btcusdt".
+     *
+     * @return The symbol.
+     */
+    public String getSymbol() {
+        return symbol;
+    }
 
-  public void setBaseCurrency(String baseCurrency) {
-    this.baseCurrency = baseCurrency;
-  }
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
 
-  public void setQuoteCurrency(String quoteCurrency) {
-    this.quoteCurrency = quoteCurrency;
-  }
+    /**
+     * Get the trading amount precision .
+     *
+     * @return
+     */
+    public Integer getValuePrecision() {
+        return valuePrecision;
+    }
 
-  public void setPricePrecision(int pricePrecision) {
-    this.pricePrecision = pricePrecision;
-  }
+    public void setValuePrecision(Integer valuePrecision) {
+        this.valuePrecision = valuePrecision;
+    }
 
-  public void setAmountPrecision(int amountPrecision) {
-    this.amountPrecision = amountPrecision;
-  }
+    /**
+     * Get the min order size .
+     *
+     * @return
+     */
+    public BigDecimal getMinOrderAmt() {
+        return minOrderAmt;
+    }
 
-  public void setSymbolPartition(String symbolPartition) {
-    this.symbolPartition = symbolPartition;
-  }
+    public void setMinOrderAmt(BigDecimal minOrderAmt) {
+        this.minOrderAmt = minOrderAmt;
+    }
 
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
-  }
+    /**
+     * Get the max order size .
+     *
+     * @return
+     */
+    public BigDecimal getMaxOrderAmt() {
+        return maxOrderAmt;
+    }
 
-  public void setValuePrecision(Integer valuePrecision) {
-    this.valuePrecision = valuePrecision;
-  }
+    public void setMaxOrderAmt(BigDecimal maxOrderAmt) {
+        this.maxOrderAmt = maxOrderAmt;
+    }
 
-  public void setMinOrderAmt(BigDecimal minOrderAmt) {
-    this.minOrderAmt = minOrderAmt;
-  }
+    /**
+     * Get the min order amount .
+     *
+     * @return
+     */
+    public BigDecimal getMinOrderValue() {
+        return minOrderValue;
+    }
 
-  public void setMaxOrderAmt(BigDecimal maxOrderAmt) {
-    this.maxOrderAmt = maxOrderAmt;
-  }
+    public void setMinOrderValue(BigDecimal minOrderValue) {
+        this.minOrderValue = minOrderValue;
+    }
 
-  public void setMinOrderValue(BigDecimal minOrderValue) {
-    this.minOrderValue = minOrderValue;
-  }
+    /**
+     * Get the maximum leverage
+     *
+     * @return
+     */
+    public Integer getLeverageRatio() {
+        return leverageRatio;
+    }
 
-  public void setLeverageRatio(Integer leverageRatio) {
-    this.leverageRatio = leverageRatio;
-  }
+    public void setLeverageRatio(Integer leverageRatio) {
+        this.leverageRatio = leverageRatio;
+    }
 }

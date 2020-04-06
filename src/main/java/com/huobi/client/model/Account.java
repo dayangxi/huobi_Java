@@ -3,6 +3,7 @@ package com.huobi.client.model;
 
 import com.huobi.client.model.enums.AccountState;
 import com.huobi.client.model.enums.AccountType;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,93 +13,91 @@ import java.util.List;
 public class Account {
 
 
-  private long id;
+    private long id;
 
 
-  private AccountType type;
+    private AccountType type;
 
 
-  private AccountState state;
+    private AccountState state;
 
 
-  private List<Balance> balances;
-  private String subtype;
+    private List<Balance> balances;
+    private String subtype;
 
-  /**
-   * Get The balance list of the account.
-   *
-   * @return The balance list, see {@link Balance}
-   */
-  public List<Balance> getBalances() {
-    return balances;
-  }
-
-  /**
-   * Get the unique account id.
-   *
-   * @return The id.
-   */
-  public long getId() {
-    return id;
-  }
-
-  /**
-   * Get the type of this account, possible value: spot, margin, otc, point.
-   *
-   * @return The account type, see {@link AccountType}
-   */
-  public AccountType getType() {
-    return type;
-  }
-
-  /**
-   * Get the account state, possible value: working, lock.
-   *
-   * @return The status, see {@link AccountState}
-   */
-  public AccountState getState() {
-    return state;
-  }
-
-
-  public String getSubtype() {
-    return subtype;
-  }
-
-
-  /**
-   * Get The balance list of the specified currency.
-   *
-   * @param currency The currency you want to check.
-   * @return The balance, see {@link Balance}
-   */
-  public List<Balance> getBalance(String currency) {
-    List<Balance> result = new LinkedList<>();
-    for (Balance balance : balances) {
-      if (currency.equals(balance.getCurrency())) {
-        result.add(balance);
-      }
+    /**
+     * Get The balance list of the account.
+     *
+     * @return The balance list, see {@link Balance}
+     */
+    public List<Balance> getBalances() {
+        return balances;
     }
-    return result;
-  }
 
-  public void setBalances(List<Balance> balances) {
-    this.balances = balances;
-  }
+    public void setBalances(List<Balance> balances) {
+        this.balances = balances;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    /**
+     * Get the unique account id.
+     *
+     * @return The id.
+     */
+    public long getId() {
+        return id;
+    }
 
-  public void setType(AccountType type) {
-    this.type = type;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public void setState(AccountState state) {
-    this.state = state;
-  }
+    /**
+     * Get the type of this account, possible value: spot, margin, otc, point.
+     *
+     * @return The account type, see {@link AccountType}
+     */
+    public AccountType getType() {
+        return type;
+    }
 
-  public void setSubtype(String subtype) {
-    this.subtype = subtype;
-  }
+    public void setType(AccountType type) {
+        this.type = type;
+    }
+
+    /**
+     * Get the account state, possible value: working, lock.
+     *
+     * @return The status, see {@link AccountState}
+     */
+    public AccountState getState() {
+        return state;
+    }
+
+    public void setState(AccountState state) {
+        this.state = state;
+    }
+
+    public String getSubtype() {
+        return subtype;
+    }
+
+    public void setSubtype(String subtype) {
+        this.subtype = subtype;
+    }
+
+    /**
+     * Get The balance list of the specified currency.
+     *
+     * @param currency The currency you want to check.
+     * @return The balance, see {@link Balance}
+     */
+    public List<Balance> getBalance(String currency) {
+        List<Balance> result = new LinkedList<>();
+        for (Balance balance : balances) {
+            if (currency.equals(balance.getCurrency())) {
+                result.add(balance);
+            }
+        }
+        return result;
+    }
 }

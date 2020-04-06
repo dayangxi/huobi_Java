@@ -10,108 +10,102 @@ import com.huobi.client.model.enums.QueryDirection;
  */
 public class OpenOrderRequest {
 
-  /**
-   * The request of get open orders.
-   *
-   * @param symbol The symbol, like "btcusdt". (mandatory)
-   * @param accountType The account type, margin,otc,point,spot (mandatory)
-   */
-  public OpenOrderRequest(String symbol, AccountType accountType) {
-    this.symbol = symbol;
-    this.accountType = accountType;
-  }
+    private final String symbol;
+    private final AccountType accountType;
+    private Integer size = null;
+    private OrderSide side = null;
+    private String direct = null;
+    private Long from = null;
 
-  /**
-   * The request of get open orders.
-   *
-   * @param symbol The symbol, like "btcusdt". (mandatory)
-   * @param accountType The account type, margin,otc,point,spot (mandatory)
-   * @param side The order side, buy or sell. If no side defined, will return all open orders of the account. (optional can be null)
-   * @param size The number of orders to return. Range is [1, 500]. Default is 10. (optional, can be null)
-   */
-  public OpenOrderRequest(String symbol, AccountType accountType,
-      OrderSide side,
-      Integer size) {
-    this.symbol = symbol;
-    this.accountType = accountType;
-    this.size = size;
-    this.side = side;
-  }
-
-  /**
-   *
-   * @param symbol  The symbol, like "btcusdt". (mandatory)
-   * @param accountType  The account type, margin,otc,point,spot (mandatory)
-   * @param side The order side, buy or sell. If no side defined, will return all open orders of the account. (optional can be null)
-   * @param size The number of orders to return. Range is [1, 500]. Default is 10. (optional, can be null)
-   * @param from The query start id.
-   * @param direct The direction of query .pre or next
-   */
-  public OpenOrderRequest(String symbol,
-      AccountType accountType,
-      OrderSide side,
-      Integer size,
-      Long from,
-      QueryDirection direct) {
-    this.symbol = symbol;
-    this.accountType = accountType;
-    this.size = size;
-    this.side = side;
-    this.from = from;
-    if (direct != null) {
-      this.direct = direct.toString();
+    /**
+     * The request of get open orders.
+     *
+     * @param symbol      The symbol, like "btcusdt". (mandatory)
+     * @param accountType The account type, margin,otc,point,spot (mandatory)
+     */
+    public OpenOrderRequest(String symbol, AccountType accountType) {
+        this.symbol = symbol;
+        this.accountType = accountType;
     }
-  }
 
-  private final String symbol;
+    /**
+     * The request of get open orders.
+     *
+     * @param symbol      The symbol, like "btcusdt". (mandatory)
+     * @param accountType The account type, margin,otc,point,spot (mandatory)
+     * @param side        The order side, buy or sell. If no side defined, will return all open orders of the account. (optional can be null)
+     * @param size        The number of orders to return. Range is [1, 500]. Default is 10. (optional, can be null)
+     */
+    public OpenOrderRequest(String symbol, AccountType accountType,
+                            OrderSide side,
+                            Integer size) {
+        this.symbol = symbol;
+        this.accountType = accountType;
+        this.size = size;
+        this.side = side;
+    }
 
-  private final AccountType accountType;
+    /**
+     * @param symbol      The symbol, like "btcusdt". (mandatory)
+     * @param accountType The account type, margin,otc,point,spot (mandatory)
+     * @param side        The order side, buy or sell. If no side defined, will return all open orders of the account. (optional can be null)
+     * @param size        The number of orders to return. Range is [1, 500]. Default is 10. (optional, can be null)
+     * @param from        The query start id.
+     * @param direct      The direction of query .pre or next
+     */
+    public OpenOrderRequest(String symbol,
+                            AccountType accountType,
+                            OrderSide side,
+                            Integer size,
+                            Long from,
+                            QueryDirection direct) {
+        this.symbol = symbol;
+        this.accountType = accountType;
+        this.size = size;
+        this.side = side;
+        this.from = from;
+        if (direct != null) {
+            this.direct = direct.toString();
+        }
+    }
 
-  private Integer size = null;
+    public String getSymbol() {
+        return symbol;
+    }
 
-  private OrderSide side = null;
+    public AccountType getAccountType() {
+        return accountType;
+    }
 
-  private String direct = null;
+    public Integer getSize() {
+        return size;
+    }
 
-  private Long from = null;
+    public void setSize(Integer size) {
+        this.size = size;
+    }
 
-  public String getSymbol() {
-    return symbol;
-  }
+    public OrderSide getSide() {
+        return side;
+    }
 
-  public AccountType getAccountType() {
-    return accountType;
-  }
+    public void setSide(OrderSide side) {
+        this.side = side;
+    }
 
-  public Integer getSize() {
-    return size;
-  }
+    public String getDirect() {
+        return direct;
+    }
 
-  public void setSize(Integer size) {
-    this.size = size;
-  }
+    public void setDirect(String direct) {
+        this.direct = direct;
+    }
 
-  public OrderSide getSide() {
-    return side;
-  }
+    public Long getFrom() {
+        return from;
+    }
 
-  public void setSide(OrderSide side) {
-    this.side = side;
-  }
-
-  public String getDirect() {
-    return direct;
-  }
-
-  public void setDirect(String direct) {
-    this.direct = direct;
-  }
-
-  public Long getFrom() {
-    return from;
-  }
-
-  public void setFrom(Long from) {
-    this.from = from;
-  }
+    public void setFrom(Long from) {
+        this.from = from;
+    }
 }

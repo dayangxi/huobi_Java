@@ -11,67 +11,67 @@ import java.util.List;
 public class User {
 
 
-  private List<Account> accounts;
+    private List<Account> accounts;
 
-  /**
-   * Get all accounts for each user.
-   *
-   * @return The accounts list, see {@link Account}
-   */
-  public List<Account> getAccounts() {
-    return accounts;
-  }
-
-  /**
-   * Get account by account type.
-   *
-   * @param accountType The specified account type, see {@link AccountType}
-   * @return The account, see {@link Account}
-   */
-  public Account getAccount(AccountType accountType) {
-    for (Account account : accounts) {
-      if (account.getType() == accountType) {
-        return account;
-      }
-    }
-    return null;
-  }
-
-  public Account getAccount(AccountType accountType, String symbol) {
-    if (AccountType.MARGIN != accountType) {
-      return getAccount(accountType);
+    /**
+     * Get all accounts for each user.
+     *
+     * @return The accounts list, see {@link Account}
+     */
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
-    if (symbol == null || symbol.trim().length() <= 0) {
-      throw new HuobiApiException(HuobiApiException.RUNTIME_ERROR, "Margin Account Type need subtype.");
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
-    for (Account account : accounts) {
-      if (account.getType() == accountType && symbol.equals(account.getSubtype())) {
-        return account;
-      }
+    /**
+     * Get account by account type.
+     *
+     * @param accountType The specified account type, see {@link AccountType}
+     * @return The account, see {@link Account}
+     */
+    public Account getAccount(AccountType accountType) {
+        for (Account account : accounts) {
+            if (account.getType() == accountType) {
+                return account;
+            }
+        }
+        return null;
     }
-    return null;
-  }
 
-  /**
-   * Get account by account id.
-   *
-   * @param accountId The specified account id.
-   * @return The account, see {@link Account}
-   */
-  public Account getAccount(long accountId) {
-    for (Account account : accounts) {
-      if (account.getId() == accountId) {
-        return account;
-      }
+    public Account getAccount(AccountType accountType, String symbol) {
+        if (AccountType.MARGIN != accountType) {
+            return getAccount(accountType);
+        }
+
+        if (symbol == null || symbol.trim().length() <= 0) {
+            throw new HuobiApiException(HuobiApiException.RUNTIME_ERROR, "Margin Account Type need subtype.");
+        }
+
+        for (Account account : accounts) {
+            if (account.getType() == accountType && symbol.equals(account.getSubtype())) {
+                return account;
+            }
+        }
+        return null;
     }
-    return null;
-  }
 
-  public void setAccounts(List<Account> accounts) {
-    this.accounts = accounts;
-  }
+    /**
+     * Get account by account id.
+     *
+     * @param accountId The specified account id.
+     * @return The account, see {@link Account}
+     */
+    public Account getAccount(long accountId) {
+        for (Account account : accounts) {
+            if (account.getId() == accountId) {
+                return account;
+            }
+        }
+        return null;
+    }
 
 
 }

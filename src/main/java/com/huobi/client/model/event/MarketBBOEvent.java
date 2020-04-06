@@ -11,48 +11,48 @@ import com.huobi.client.model.MarketBBO;
 
 public class MarketBBOEvent {
 
-  private String ch;
+    private String ch;
 
-  private Long timestamp;
+    private Long timestamp;
 
-  private MarketBBO data;
+    private MarketBBO data;
 
-  public String getCh() {
-    return ch;
-  }
+    public static RestApiJsonParser<MarketBBOEvent> getParser() {
+        return (jsonWrapper) -> {
+            return parse(jsonWrapper);
+        };
+    }
 
-  public void setCh(String ch) {
-    this.ch = ch;
-  }
+    public static MarketBBOEvent parse(JsonWrapper jsonWrapper) {
+        MarketBBOEvent event = new MarketBBOEvent();
+        event.setCh(jsonWrapper.getStringOrDefault("ch", null));
+        event.setTimestamp(jsonWrapper.getLong("ts"));
+        event.setData(MarketBBO.parse(jsonWrapper.getJsonObject("tick")));
+        return event;
+    }
 
-  public Long getTimestamp() {
-    return timestamp;
-  }
+    public String getCh() {
+        return ch;
+    }
 
-  public void setTimestamp(Long timestamp) {
-    this.timestamp = timestamp;
-  }
+    public void setCh(String ch) {
+        this.ch = ch;
+    }
 
-  public MarketBBO getData() {
-    return data;
-  }
+    public Long getTimestamp() {
+        return timestamp;
+    }
 
-  public void setData(MarketBBO data) {
-    this.data = data;
-  }
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
 
-  public static RestApiJsonParser<MarketBBOEvent> getParser(){
-    return (jsonWrapper) -> {
-      return parse(jsonWrapper);
-    };
-  }
+    public MarketBBO getData() {
+        return data;
+    }
 
-  public static MarketBBOEvent parse(JsonWrapper jsonWrapper) {
-    MarketBBOEvent event = new MarketBBOEvent();
-    event.setCh(jsonWrapper.getStringOrDefault("ch",null));
-    event.setTimestamp(jsonWrapper.getLong("ts"));
-    event.setData(MarketBBO.parse(jsonWrapper.getJsonObject("tick")));
-    return event;
-  }
+    public void setData(MarketBBO data) {
+        this.data = data;
+    }
 
 }

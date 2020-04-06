@@ -3,75 +3,76 @@ package com.huobi.client.impl;
 import com.huobi.client.SubscriptionOptions;
 import com.huobi.client.exception.HuobiApiException;
 import com.huobi.client.impl.utils.JsonWrapper;
+import okio.ByteString;
+import org.powermock.api.support.membermodification.MemberModifier;
+
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.util.zip.GZIPOutputStream;
-import okio.ByteString;
-import org.powermock.api.support.membermodification.MemberModifier;
 
 @SuppressWarnings("unchecked")
 public class MockWebsocketConnection extends WebSocketConnection {
 
-  private WebsocketRequest request;
-  private MockOkHttpWebsocket mockWebsocket;
-  static private WebSocketWatchDog watchDog = new WebSocketWatchDog(new SubscriptionOptions());
+    static private WebSocketWatchDog watchDog = new WebSocketWatchDog(new SubscriptionOptions());
+    private WebsocketRequest request;
+    private MockOkHttpWebsocket mockWebsocket;
 
 //  public MockWebsocketConnection() {
 //    super(null, options, null);
 //  }
 
-  MockWebsocketConnection(String apiKey, String secretKey, WebsocketRequest request) {
-    super(apiKey, secretKey, new SubscriptionOptions(), request, watchDog);
-    this.request = request;
-  }
-
-  void connect() {
-    try {
-      mockWebsocket = new MockOkHttpWebsocket();
-      MemberModifier.field(MockWebsocketConnection.class, "webSocket")
-          .set(this, mockWebsocket);
-      super.onOpen(mockWebsocket, null);
-    } catch (Exception e) {
+    MockWebsocketConnection(String apiKey, String secretKey, WebsocketRequest request) {
+        super(apiKey, secretKey, new SubscriptionOptions(), request, watchDog);
+        this.request = request;
     }
-  }
 
-  MockOkHttpWebsocket getWebsocket() {
-    return mockWebsocket;
-  }
-
-  @Override
-  void send(String str) {
-    mockWebsocket.send(str);
-  }
-
-  ByteString buildMockServerMessage(String str) {
-    if (str == null || str.length() == 0) {
-      return null;
+    void connect() {
+        try {
+            mockWebsocket = new MockOkHttpWebsocket();
+            MemberModifier.field(MockWebsocketConnection.class, "webSocket")
+                    .set(this, mockWebsocket);
+            super.onOpen(mockWebsocket, null);
+        } catch (Exception e) {
+        }
     }
-    ByteArrayOutputStream out = new ByteArrayOutputStream();
-    GZIPOutputStream gzip;
-    try {
-      gzip = new GZIPOutputStream(out);
-      gzip.write(str.getBytes("utf8"));
-      gzip.close();
-    } catch (Exception e) {
-      e.printStackTrace();
+
+    MockOkHttpWebsocket getWebsocket() {
+        return mockWebsocket;
     }
-    return ByteString.of(ByteBuffer.wrap(out.toByteArray()));
-  }
 
-  void mockOnReceive(String jsonString) {
-    request.updateCallback.onReceive(
-        request.jsonParser.parseJson(JsonWrapper.parseFromString(jsonString)));
-  }
+    @Override
+    void send(String str) {
+        mockWebsocket.send(str);
+    }
 
-  void mockOnMessage(String msg) {
-    onMessage(mockWebsocket, buildMockServerMessage(msg));
-  }
+    ByteString buildMockServerMessage(String str) {
+        if (str == null || str.length() == 0) {
+            return null;
+        }
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        GZIPOutputStream gzip;
+        try {
+            gzip = new GZIPOutputStream(out);
+            gzip.write(str.getBytes("utf8"));
+            gzip.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ByteString.of(ByteBuffer.wrap(out.toByteArray()));
+    }
 
-  void mockOnError(String errorString) {
-    request.errorHandler.onError(new HuobiApiException("test", "test"));
-  }
+    void mockOnReceive(String jsonString) {
+        request.updateCallback.onReceive(
+                request.jsonParser.parseJson(JsonWrapper.parseFromString(jsonString)));
+    }
+
+    void mockOnMessage(String msg) {
+        onMessage(mockWebsocket, buildMockServerMessage(msg));
+    }
+
+    void mockOnError(String errorString) {
+        request.errorHandler.onError(new HuobiApiException("test", "test"));
+    }
 
 //  @Test
 //  public void testConnection() {

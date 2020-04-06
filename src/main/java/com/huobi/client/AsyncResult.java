@@ -11,25 +11,25 @@ import com.huobi.client.exception.HuobiApiException;
  */
 public interface AsyncResult<T> {
 
-  /**
-   * Get exception, if the asynchronous invoking failure, you should use this method to get the
-   * exception.
-   *
-   * @return The exception of the invoking.
-   */
-  HuobiApiException getException();
+    /**
+     * Get exception, if the asynchronous invoking failure, you should use this method to get the
+     * exception.
+     *
+     * @return The exception of the invoking.
+     */
+    HuobiApiException getException();
 
-  /**
-   * Calling success or not.
-   *
-   * @return true for successful, false for failed.
-   */
-  boolean succeeded();
+    /**
+     * Calling success or not.
+     *
+     * @return true for successful, false for failed.
+     */
+    boolean succeeded();
 
-  /**
-   * Get the data response from the server.
-   *
-   * @return Any type you incoming.
-   */
-  T getData();
+    /**
+     * Get the data response from the server.
+     *
+     * @return Any type you incoming.
+     */
+    T getData();
 }

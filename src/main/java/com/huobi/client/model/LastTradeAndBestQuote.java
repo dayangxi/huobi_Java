@@ -7,88 +7,88 @@ import java.math.BigDecimal;
  */
 public class LastTradeAndBestQuote {
 
-  private BigDecimal lastTradePrice;
-  private BigDecimal lastTradeAmount;
-  private BigDecimal askPrice;
-  private BigDecimal askAmount;
-  private BigDecimal bidPrice;
-  private BigDecimal bidAmount;
+    private BigDecimal lastTradePrice;
+    private BigDecimal lastTradeAmount;
+    private BigDecimal askPrice;
+    private BigDecimal askAmount;
+    private BigDecimal bidPrice;
+    private BigDecimal bidAmount;
 
-  /**
-   * Get the last trade price.
-   *
-   * @return The last price.
-   */
-  public BigDecimal getLastTradePrice() {
-    return lastTradePrice;
-  }
+    /**
+     * Get the last trade price.
+     *
+     * @return The last price.
+     */
+    public BigDecimal getLastTradePrice() {
+        return lastTradePrice;
+    }
 
-  /**
-   * The last trade amount.
-   *
-   * @return The amount.
-   */
-  public BigDecimal getLastTradeAmount() {
-    return lastTradeAmount;
-  }
+    public void setLastTradePrice(BigDecimal lastTradePrice) {
+        this.lastTradePrice = lastTradePrice;
+    }
 
-  /**
-   * Get the best ask price.
-   *
-   * @return The price.
-   */
-  public BigDecimal getAskPrice() {
-    return askPrice;
-  }
+    /**
+     * The last trade amount.
+     *
+     * @return The amount.
+     */
+    public BigDecimal getLastTradeAmount() {
+        return lastTradeAmount;
+    }
 
-  /**
-   * Get the best ask amount.
-   *
-   * @return The amount.
-   */
-  public BigDecimal getAskAmount() {
-    return askAmount;
-  }
+    public void setLastTradeAmount(BigDecimal lastTradeAmount) {
+        this.lastTradeAmount = lastTradeAmount;
+    }
 
-  /**
-   * Get the best bid price.
-   *
-   * @return The price.
-   */
-  public BigDecimal getBidPrice() {
-    return bidPrice;
-  }
+    /**
+     * Get the best ask price.
+     *
+     * @return The price.
+     */
+    public BigDecimal getAskPrice() {
+        return askPrice;
+    }
 
-  /**
-   * Get the best bid amount.
-   *
-   * @return The amount.
-   */
-  public BigDecimal getBidAmount() {
-    return bidAmount;
-  }
+    public void setAskPrice(BigDecimal askPrice) {
+        this.askPrice = askPrice;
+    }
 
-  public void setLastTradePrice(BigDecimal lastTradePrice) {
-    this.lastTradePrice = lastTradePrice;
-  }
+    /**
+     * Get the best ask amount.
+     *
+     * @return The amount.
+     */
+    public BigDecimal getAskAmount() {
+        return askAmount;
+    }
 
-  public void setLastTradeAmount(BigDecimal lastTradeAmount) {
-    this.lastTradeAmount = lastTradeAmount;
-  }
+    public void setAskAmount(BigDecimal askAmount) {
+        this.askAmount = askAmount;
+    }
 
-  public void setAskPrice(BigDecimal askPrice) {
-    this.askPrice = askPrice;
-  }
+    /**
+     * Get the best bid price.
+     *
+     * @return The price.
+     */
+    public BigDecimal getBidPrice() {
+        return bidPrice;
+    }
 
-  public void setAskAmount(BigDecimal askAmount) {
-    this.askAmount = askAmount;
-  }
+    public void setBidPrice(BigDecimal bidPrice) {
+        this.bidPrice = bidPrice;
+    }
 
-  public void setBidPrice(BigDecimal bidPrice) {
-    this.bidPrice = bidPrice;
-  }
+    /**
+     * Get the best bid amount.
+     *
+     * @return The amount.
+     */
+    public BigDecimal getBidAmount() {
+        return bidAmount;
+    }
 
-  public void setBidAmount(BigDecimal bidAmount) {
-    this.bidAmount = bidAmount;
-  }
+    public void setBidAmount(BigDecimal bidAmount) {
+        this.bidAmount = bidAmount;
+    }
 }

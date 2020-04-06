@@ -4,23 +4,23 @@ import java.util.List;
 
 public class MarginLoanInfo {
 
-  private String symbol;
+    private String symbol;
 
-  private List<MarginLoanCurrencyInfo> currencies;
+    private List<MarginLoanCurrencyInfo> currencies;
 
-  public String getSymbol() {
-    return symbol;
-  }
+    public String getSymbol() {
+        return symbol;
+    }
 
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
-  }
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
 
-  public List<MarginLoanCurrencyInfo> getCurrencies() {
-    return currencies;
-  }
+    public List<MarginLoanCurrencyInfo> getCurrencies() {
+        return currencies;
+    }
 
-  public void setCurrencies(List<MarginLoanCurrencyInfo> currencies) {
-    this.currencies = currencies;
-  }
+    public void setCurrencies(List<MarginLoanCurrencyInfo> currencies) {
+        this.currencies = currencies;
+    }
 }

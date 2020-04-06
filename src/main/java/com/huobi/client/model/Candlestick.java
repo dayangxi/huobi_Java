@@ -7,126 +7,126 @@ import java.math.BigDecimal;
  */
 public class Candlestick {
 
-  private Long id;
-  private long timestamp;
-  private BigDecimal amount;
-  private long count;
-  private BigDecimal open;
-  private BigDecimal close;
-  private BigDecimal low;
-  private BigDecimal high;
-  private BigDecimal volume;
+    private Long id;
+    private long timestamp;
+    private BigDecimal amount;
+    private long count;
+    private BigDecimal open;
+    private BigDecimal close;
+    private BigDecimal low;
+    private BigDecimal high;
+    private BigDecimal volume;
 
-  /**
-   * Get the UNIX formatted timestamp in UTC.
-   *
-   * @return The timestamp.
-   */
-  public long getTimestamp() {
-    return timestamp;
-  }
+    /**
+     * Get the UNIX formatted timestamp in UTC.
+     *
+     * @return The timestamp.
+     */
+    public long getTimestamp() {
+        return timestamp;
+    }
 
-  /**
-   * Get the aggregated trading volume in USDT.
-   *
-   * @return The amount.
-   */
-  public BigDecimal getAmount() {
-    return amount;
-  }
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
 
-  /**
-   * Get the number of completed trades.<br>
-   *  it returns 0 when get ETF candlestick
-   *
-   * @return The number of trades.
-   */
-  public long getCount() {
-    return count;
-  }
+    /**
+     * Get the aggregated trading volume in USDT.
+     *
+     * @return The amount.
+     */
+    public BigDecimal getAmount() {
+        return amount;
+    }
 
-  /**
-   * Get the opening price.
-   *
-   * @return The open price.
-   */
-  public BigDecimal getOpen() {
-    return open;
-  }
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
 
-  /**
-   * Get the closing price.
-   *
-   * @return The close price.
-   */
-  public BigDecimal getClose() {
-    return close;
-  }
+    /**
+     * Get the number of completed trades.<br>
+     * it returns 0 when get ETF candlestick
+     *
+     * @return The number of trades.
+     */
+    public long getCount() {
+        return count;
+    }
 
-  /**
-   * Get the low price.
-   *
-   * @return The low price.
-   */
-  public BigDecimal getLow() {
-    return low;
-  }
+    public void setCount(long count) {
+        this.count = count;
+    }
 
-  /**
-   * Get the high price.
-   *
-   * @return The high price.
-   */
-  public BigDecimal getHigh() {
-    return high;
-  }
+    /**
+     * Get the opening price.
+     *
+     * @return The open price.
+     */
+    public BigDecimal getOpen() {
+        return open;
+    }
 
-  /**
-   * Get the trading volume in base currency.
-   *
-   * @return The volume.
-   */
-  public BigDecimal getVolume() {
-    return volume;
-  }
+    public void setOpen(BigDecimal open) {
+        this.open = open;
+    }
 
-  public Long getId() {
-    return id;
-  }
+    /**
+     * Get the closing price.
+     *
+     * @return The close price.
+     */
+    public BigDecimal getClose() {
+        return close;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setClose(BigDecimal close) {
+        this.close = close;
+    }
 
-  public void setTimestamp(long timestamp) {
-    this.timestamp = timestamp;
-  }
+    /**
+     * Get the low price.
+     *
+     * @return The low price.
+     */
+    public BigDecimal getLow() {
+        return low;
+    }
 
-  public void setAmount(BigDecimal amount) {
-    this.amount = amount;
-  }
+    public void setLow(BigDecimal low) {
+        this.low = low;
+    }
 
-  public void setCount(long count) {
-    this.count = count;
-  }
+    /**
+     * Get the high price.
+     *
+     * @return The high price.
+     */
+    public BigDecimal getHigh() {
+        return high;
+    }
 
-  public void setOpen(BigDecimal open) {
-    this.open = open;
-  }
+    public void setHigh(BigDecimal high) {
+        this.high = high;
+    }
 
-  public void setClose(BigDecimal close) {
-    this.close = close;
-  }
+    /**
+     * Get the trading volume in base currency.
+     *
+     * @return The volume.
+     */
+    public BigDecimal getVolume() {
+        return volume;
+    }
 
-  public void setLow(BigDecimal low) {
-    this.low = low;
-  }
+    public void setVolume(BigDecimal volume) {
+        this.volume = volume;
+    }
 
-  public void setHigh(BigDecimal high) {
-    this.high = high;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public void setVolume(BigDecimal volume) {
-    this.volume = volume;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

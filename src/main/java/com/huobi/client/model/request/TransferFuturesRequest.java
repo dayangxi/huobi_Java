@@ -1,39 +1,38 @@
 package com.huobi.client.model.request;
 
-import java.math.BigDecimal;
-
-
 import com.huobi.client.model.enums.TransferFuturesDirection;
+
+import java.math.BigDecimal;
 
 public class TransferFuturesRequest {
 
-  private String currency;
+    private String currency;
 
-  private BigDecimal amount;
+    private BigDecimal amount;
 
-  private TransferFuturesDirection direction;
+    private TransferFuturesDirection direction;
 
-  public String getCurrency() {
-    return currency;
-  }
+    public String getCurrency() {
+        return currency;
+    }
 
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
-  public BigDecimal getAmount() {
-    return amount;
-  }
+    public BigDecimal getAmount() {
+        return amount;
+    }
 
-  public void setAmount(BigDecimal amount) {
-    this.amount = amount;
-  }
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
 
-  public TransferFuturesDirection getDirection() {
-    return direction;
-  }
+    public TransferFuturesDirection getDirection() {
+        return direction;
+    }
 
-  public void setDirection(TransferFuturesDirection direction) {
-    this.direction = direction;
-  }
+    public void setDirection(TransferFuturesDirection direction) {
+        this.direction = direction;
+    }
 }

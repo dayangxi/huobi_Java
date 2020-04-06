@@ -2,28 +2,28 @@ package com.huobi.client.model.enums;
 
 public enum SubuserManagementAction {
 
-  LOCK("lock"),
-  UNLOCK("unlock"),
+    LOCK("lock"),
+    UNLOCK("unlock"),
 
-  ;
+    ;
 
-  private final String action;
+    private final String action;
 
 
-  SubuserManagementAction(String action) {
-    this.action = action;
-  }
-
-  public String getAction() {
-    return action;
-  }
-
-  public static SubuserManagementAction find(String action) {
-    for (SubuserManagementAction act : SubuserManagementAction.values()) {
-      if (act.getAction().equals(action)) {
-        return act;
-      }
+    SubuserManagementAction(String action) {
+        this.action = action;
     }
-    return null;
-  }
+
+    public static SubuserManagementAction find(String action) {
+        for (SubuserManagementAction act : SubuserManagementAction.values()) {
+            if (act.getAction().equals(action)) {
+                return act;
+            }
+        }
+        return null;
+    }
+
+    public String getAction() {
+        return action;
+    }
 }
